@@ -7,9 +7,14 @@ import ItemListContainer from './componets/ItemListContainer'
 const App = () => {
   return (
     <>
-    
+  
+     <div className='nav'>
      <NavBar/>
-     <ItemListContainer gretting="Bienvenidos a SM COMMERCE"></ItemListContainer>
+     </div>
+     <div className='itemcontainer'>
+     <ItemListContainer gretting="Bienvenidos a SM-COMMERCE"></ItemListContainer>
+     </div>
+     
     </>
   )
 }
