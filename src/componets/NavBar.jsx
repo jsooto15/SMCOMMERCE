@@ -1,48 +1,37 @@
-import React from 'react'
-import { Flex, Spacer } from '@chakra-ui/react'
-import CartWidget from './CartWidget'
-import {
-  Box,
-  Heading,
-  Container, 
-  Button, 
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
- 
-} from '@chakra-ui/react'
-import {ChevronDownIcon} from '@chakra-ui/icons'
-const NavBar = () => {
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../context/ShoppingCartContext";
+import CartWidget from '../componets/CartWidget';
+import image from '../assets/logo.png'
+export const Navbar = () => {
+  const [cart, setCart] = useContext(CartContext);
+
+  const quantity = cart.reduce((acc, curr) => {
+    return acc + curr.quantity;
+  }, 0);
+
+  const navStyles = {
+    color: "#fff",
+    listStyle: "none",
+    textDecoration: "none",
+  };
+
   return (
-    <>   
-     <Container>  
-  <Flex justifyContent="right" gap="1">
-  <Box   p='10' w="400px" h="100"> 
-  <Heading >SM COMMERCE</Heading>
-  </Box>
-  <Spacer />
-  <Box p="75" w="200px" h="100">
-   <Menu>
-  <MenuButton 
-  as={Button} siza="lg" variant="outline"rightIcon={<ChevronDownIcon />}>
-    Menu
-  </MenuButton>
-  <MenuList>
-    <MenuItem>Catalogo</MenuItem>
-    <MenuItem>About</MenuItem>
-    <MenuItem>Metodos de pago</MenuItem>
-  </MenuList>
-</Menu>
-  </Box>
-  <Box p='75' w="300px" h="100">
-   <CartWidget/> 
-  </Box>
-</Flex>
-</Container>
-    </>
+   <nav>
+   <Link to={"/"} style={navStyles}>
+      <img src={image} width="180" height="80"/><br></br><span>COMMERCE</span>
+    </Link>
+      <ul className="nav-list">
+    <Link to={"/itemlist"} style={navStyles}>
+        <li>
+         <h3>Catalogo</h3>
+        </li>
+    </Link>
+    <Link to={"/cart"}  style={navStyles}>
+        <CartWidget/><span className="cart-count">{quantity}</span>
+    </Link>
+      </ul>
+    </nav>
+  );
+};
 
-  )
-}
-
-export default NavBar

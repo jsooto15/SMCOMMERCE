@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Rin VOOSEN 20''",
+        "detail":"Rin 20x5 color gloss clear",
+        "price": 700,
+        "imgUrl": "../images/voosen.jpg"
+    },
+    {
+        "id":2,
+        "name":"Rin VOOSEN 18''",
+        "detail":"Rin 18x5 color satin black",
+        "price": 600,
+        "imgUrl":"../images/voosen2.jpg"
+    },
+    {
+        "id":3,
+        "name":"Rin FUEL WHEEL 17''",
+        "detail":"Rin 17x9 6h , color satin black",
+        "price": 850,
+        "imgUrl":"../images/Fuel1.jpg"
+    },
+    {
+        "id":4,
+        "name":"Rin FUEL  WHEEL 18''",
+        "detail":"Rin 18x5 6h , color satin black  ",
+        "price": 900,
+        "imgUrl":"../images/Fuel2.jpg"
+    }
+]

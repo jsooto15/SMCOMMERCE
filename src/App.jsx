@@ -1,23 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import React, { useContext } from "react";
 import './App.css'
-import NavBar from './componets/NavBar'
-import ItemListContainer from './componets/ItemListContainer'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { ItemList } from "./componets/ItemList";
+import  {Navbar}  from "./componets/NavBar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ShoppingCart } from "./componets/ShoppingCart";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
+import ItemDetail  from "./componets/ItemDetail";
+import Home from './componets/Home';
+
 
 const App = () => {
   return (
     <>
-  
-     <div className='nav'>
-     <NavBar/>
-     </div>
-     <div className='itemcontainer'>
-     <ItemListContainer gretting="Bienvenidos a SM-COMMERCE"></ItemListContainer>
-     </div>
-     
+   
+   <ShoppingCartProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/itemlist" element={<ItemList />} />
+          <Route path="/cart" element={<ShoppingCart />} />
+          <Route path="/products/:productId" element={<ItemDetail/>} />
+        </Routes>
+      </Router>
+    </ShoppingCartProvider>
     </>
   )
 }
-
-
 export default App
